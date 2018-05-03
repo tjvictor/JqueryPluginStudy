@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用JS模拟JAVA/C#的类结构</title>
+    <script type="text/javascript" src="jquery-3.3.1.js"></script>
+    <script>
+
+        var animal = {};
+
+        var AnimalClass = function(){
+
+            this.category = "n/a";
+
+        }
+        AnimalClass.prototype = {
+            name : "n/a",
+            size : 0,
+
+            setName : function(name) { this.name = name; },
+            setCategory : function(category) { this.category = category; },
+            getCategory : function() { return this.category; }
+        }
+
+        $(function(){
+
+            console.log(AnimalClass.prototype.name);
+            console.log(AnimalClass.prototype.size);
+            AnimalClass.prototype.size++;
+            console.log(AnimalClass.prototype.size);
+            AnimalClass.prototype.setName('animal');
+            console.log(AnimalClass.prototype.name);
+            AnimalClass.prototype.setCategory('animal');
+            console.log(AnimalClass.prototype.getCategory());
+
+            console.log('-------------------------------------------------');
+
+            var cat = new AnimalClass();
+            console.log(cat.name);
+            console.log(cat.size);
+            cat.size++;
+            console.log(cat.size);
+            cat.setName('tom');
+            console.log(cat.name);
+            cat.setCategory('cat');
+            console.log(cat.getCategory());
+
+            console.log('-------------------------------------------------');
+
+            var dog = new AnimalClass();
+            console.log(dog.name);
+            console.log(dog.size);
+            dog.size++;
+            console.log(dog.size);
+            dog.setName('puppy');
+            console.log(dog.name);
+            dog.setCategory('dog');
+            console.log(dog.getCategory());
+
+            console.log('-------------------------------------------------');
+
+            console.log(cat.name);
+            console.log(cat.size);
+            cat.size++;
+            console.log(cat.size);
+            cat.setName('tom');
+            console.log(cat.name);
+            cat.setCategory('cat');
+            console.log(cat.getCategory());
+
+            console.log('-------------------------------------------------');
+
+            AnimalClass.prototype.name = "Human";
+
+
+        });
+    </script>
+</head>
+<body>
+
+</body>
+</html>

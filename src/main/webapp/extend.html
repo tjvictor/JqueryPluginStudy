@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="jquery-3.3.1.js"></script>
+    <script>
+        (function ($){
+            var myAppObj = {
+
+                obj1 : function () { return 'my app obj1'; },
+
+                obj2 : function () { return 'my app obj2 ' + this.a1(); },
+
+                obj3 : 'my app obj3',
+
+                obj4 : 4,
+
+                obj5 : function () { this.obj4++; return this.obj4 ; }
+            };
+
+            var myAppOneFunction = function () {
+
+                fun1 = function () { return 'my app fun1'; };
+
+                return fun1;
+            }
+
+            var myAppFunction = function () {
+
+                return {
+                    fun1 : function () { return 'my app fun1'; },
+
+                    fun2 : function () { return 'my app fun2 ' + this.a1(); },
+
+                    fun3 : 'my app fun3',
+
+                    fun4 : 4,
+
+                    fun5 : function () { this.fun4++; return this.fun4; }
+                };
+            }
+
+            $.extend({myAppObj});
+            $.extend({myAppOneFunction});
+            $.extend({myAppFunction});
+
+        })(jQuery);
+
+        $(function () {
+            console.log($.myAppObj.obj1());
+            console.log(typeof($.myAppObj));
+            console.log(typeof($.myAppObj.obj1));
+            console.log(typeof($.myAppObj.obj1()));
+
+            console.log('---------------------------------------');
+
+            console.log($.myAppOneFunction);
+            console.log($.myAppOneFunction());
+            console.log(($.myAppOneFunction())());
+            console.log(typeof($.myAppOneFunction));
+            console.log(typeof($.myAppOneFunction()));
+            console.log(typeof(($.myAppOneFunction())()));
+
+            console.log('---------------------------------------');
+
+
+        });
+    </script>
+</head>
+<body>
+
+</body>
+</html>
